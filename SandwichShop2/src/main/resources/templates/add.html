@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+<meta charset="UTF-8">
+<title>Add an Item</title>
+</head>
+<body>
+	<div align="center" class="col-md-12">
+		<h2>Order a Sandwhich</h2>
+		<div class="col-md-6">
+				
+			<form action="#" th:action="@{/add-menu}" th:object="${menu}" method="post">
+				<div class="form-group">
+					<label for="itemName">Item Name:</label> <input type="text" class="form-control" id="itemName" th:field="*{itemName}">
+					<span class="error message" style="color:red;font-weight:italic" th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}"></span>	
+				</div>
+				<div class="form-group">
+					<label for="itemDescription">Item Description:</label> <input type="text" class="form-control" id="itemDescription" th:field="*{itemDescription}">
+					<span class="error message" style="color:red;font-weight:italic" th:if="${#fields.hasErrors('itemDescription')}" th:errors="*{itemDescription}"></span>
+				</div>
+				<div class="form-group">
+					<label for="itemPrice">Item Price: $</label> <input type="text" class="form-control" id="itemPrice" th:field="*{itemPrice}">
+					<span class="error message" style="color:red;font-weight:italic" th:if="${#fields.hasErrors('itemPrice')}" th:errors="*{itemPrice}"></span>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+				
+	
+				
+			</form>
+			<a href="/">Home</a>
+		</div>
+	</div>
+	
+</body>
+</html>
